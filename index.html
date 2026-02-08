@@ -43,11 +43,16 @@ body {
     }
 
     .card {
-      background: #064e3b;
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  background: rgba(6, 78, 59, 0.55); /* trong suốt */
+  backdrop-filter: blur(12px);      /* làm mờ nền phía sau */
+  -webkit-backdrop-filter: blur(12px); /* hỗ trợ Android/iOS */
+
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
     }
 
     .card h3 {
