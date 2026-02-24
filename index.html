@@ -76,6 +76,35 @@ body {
       padding: 16px;
       opacity: 0.6;
     }
+    .tabs{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.tab-btn{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#222;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.tab-btn.active{
+  background:#22c55e;
+  color:black;
+}
+
+.tab-content{
+  display:none;
+}
+
+.tab-content.active{
+  display:block;
+}
   </style>
 </head>
 
@@ -87,7 +116,13 @@ body {
 </header>
 
 <div class="container">
+  <div class="tabs">
+  <button class="tab-btn active" onclick="showTab('mc')">🎮 Minecraft</button>
+  <button class="tab-btn" onclick="showTab('rb')">🟢 Roblox</button>
+  </div>
 
+  <div id="mc" class="tab-content active">
+    
   <div class="card">
     <h3>Newb X Dragon Shader</h3>
     <p>Màu đẹp, ánh sáng và hiệu ứng chân thực dành cho MCPE.</p>
@@ -110,6 +145,13 @@ body {
     <h3>Kênh TikTok & Youtube của mình</h3>
     <a class="btn" href="https://www.tiktok.com/@t_gmmc">TikTok @t_gmmc</a><br><br>
     <a class="btn" href="https://www.youtube.com/@T-RexGM09">YouTube T-RexGM</a>
+    <div id="rb" class="tab-content">
+  <div class="card">
+    <h3>Roblox Script</h3>
+    <p>Script Roblox mới nhất.</p>
+    <a class="btn" href="LINK_CUA_BAN">Tải Roblox</a>
+  </div>
+    </div>
   </div>
 
 </div>
@@ -119,4 +161,18 @@ body {
 </footer>
 
 </body>
+  <script>
+function showTab(tab){
+  document.querySelectorAll('.tab-content').forEach(el=>{
+    el.classList.remove('active');
+  });
+
+  document.querySelectorAll('.tab-btn').forEach(el=>{
+    el.classList.remove('active');
+  });
+
+  document.getElementById(tab).classList.add('active');
+  event.target.classList.add('active');
+}
+  </script>
 </html>
