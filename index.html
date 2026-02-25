@@ -117,8 +117,8 @@ body {
 
 <div class="container">
   <div class="tabs">
-  <button class="tab-btn active" onclick="showTab('mc', this)">🎮 Minecraft</button>
-  <button class="tab-btn" onclick="showTab('rb', this)">🟢 Roblox</button>
+  <button class="tab-btn active" data-tab="mc">🎮 Minecraft</button>
+<button class="tab-btn" data-tab="rb">🟢 Roblox</button>
   </div>
 
   <div id="mc" class="tab-content active">
@@ -147,7 +147,8 @@ body {
     <a class="btn" href="https://www.youtube.com/@T-RexGM09">YouTube T-RexGM</a>
   </div>
     
-    <div id="rb" class="tab-content">
+    <div id="rb" class="tab-content active">
+      
   <div class="card">
     <h3>Fix lag Roblox V2.708</h3>
     <p>Fix Lag Roblox V2.708,giảm 80% hiệu ứng, giảm đồ họa, tăng fps.</p>
@@ -161,26 +162,32 @@ body {
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-  function showTab(tab, element){
-    document.querySelectorAll('.tab-content').forEach(el=>{
-      el.classList.remove('active');
+  const buttons = document.querySelectorAll(".tab-btn");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", function () {
+
+      const tab = this.getAttribute("data-tab");
+
+      document.querySelectorAll(".tab-content").forEach(el => {
+        el.classList.remove("active");
+      });
+
+      buttons.forEach(el => {
+        el.classList.remove("active");
+      });
+
+      document.getElementById(tab).classList.add("active");
+      this.classList.add("active");
+
     });
-
-    document.querySelectorAll('.tab-btn').forEach(el=>{
-      el.classList.remove('active');
-    });
-
-    document.getElementById(tab).classList.add('active');
-    element.classList.add('active');
-  }
-
-  window.showTab = showTab;
+  });
 
 });
 </script>
-
+  
 </body>
 
 </html>
