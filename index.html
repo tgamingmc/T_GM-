@@ -161,18 +161,24 @@ body {
 </footer>
 
 <script>
-function showTab(tab, element){
+document.addEventListener("DOMContentLoaded", function() {
+
+  function showTab(tab, element){
     document.querySelectorAll('.tab-content').forEach(el=>{
-        el.classList.remove('active');
+      el.classList.remove('active');
     });
 
     document.querySelectorAll('.tab-btn').forEach(el=>{
-        el.classList.remove('active');
+      el.classList.remove('active');
     });
 
     document.getElementById(tab).classList.add('active');
     element.classList.add('active');
-}
+  }
+
+  window.showTab = showTab;
+
+});
 </script>
 
 </body>
